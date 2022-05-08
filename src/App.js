@@ -9,12 +9,17 @@ function App() {
   const [time, setTime] = useState({ h: 0, m: 0, s: 0, ms: 0 });
   const [interv, setInterv] = useState();
 
+  const updateIntervalMs = 10;
+
   const start = () => {
     run();
-    setInterv(setInterval(run, 10));
+    setInterv(setInterval(run, updateIntervalMs));
   };
 
-  let updatedH = time.h, updatedM = time.m, updatedS = time.s, updatedMs = time.ms;
+  let updatedH = time.h,
+    updatedM = time.m,
+    updatedS = time.s,
+    updatedMs = time.ms;
 
   const run = () => {
     if (updatedM === 60) {
@@ -25,11 +30,11 @@ function App() {
       updatedM++;
       updatedS = 0
     }
-    if (updatedMs === 60) {
+    if (updatedMs === 999) {
       updatedS++;
       updatedMs = 0
     }
-    updatedMs++;
+    updatedMs += updateIntervalMs;
     return setTime({ h: updatedH, m: updatedM, s: updatedS, ms: updatedMs });
   };
 
