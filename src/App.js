@@ -16,10 +16,10 @@ function App() {
     setInterv(setInterval(run, updateIntervalMs));
   };
 
-  let updatedH = time.h,
-    updatedM = time.m,
-    updatedS = time.s,
-    updatedMs = time.ms;
+  let updatedH = time.h;
+  let  updatedM = time.m;
+  let  updatedS = time.s;
+  let  updatedMs = time.ms;
 
   const run = () => {
     if (updatedM === 60) {
